@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:wght@700&family=League+Spartan:wght@400;500;700&family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="./js/script.js" defer></script>
 </head>
 <body>
@@ -13,16 +14,16 @@
         <nav>
             <h1>RandomHue</h1>
             <ul class="header-icons">
-                <li><label>
-                    <select name="dropdown">
-                        <option value=""selecte>Selecciona una opción</option>
+                <li><div class="dropdown-main">
+                    <span id="icono-paleta"><i class="fa-solid fa-palette"></i></span>
+                    <select id="dropdown">
+                        <option value=""selected hidden>Colores</option>
                         <option value="6">6</option>
                         <option value="8">8</option>
                         <option value="9">9</option>
                     </select>
-                    </label>
-                </li>
-                <li>Daltonismo</li>
+                </div></li>
+                <li><button class="buttons" id="btn-test"><i class="fa-solid fa-glasses"></i></button></li>
                 <li>Degrade?</li>
                 <li>Antes</li>
                 <li>Despues</li>

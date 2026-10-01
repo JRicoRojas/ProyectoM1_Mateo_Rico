@@ -6,12 +6,6 @@
 html {
   font-size: 100%;
 }
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  color: #333;
-}
 /* Variables y utilidades*/
 :root {
     --color-primario: black;
@@ -24,6 +18,10 @@ body {
     --color-7: #3498db;
     --color-8: #3498db;
     --color-9: #3498db;
+
+    --main-font: 'DM Serif Display',serif;
+    --second-font: 'Roboto', sans-serif;
+    --third-font: 'League Spartan', sans-serif;
 }
 /* Tipografía */
 h1, h2, h3, h4, h5, h6 {
@@ -34,3 +32,49 @@ h1, h2, h3, h4, h5, h6 {
 h1 { font-size: 2.5rem; }
 h2 { font-size: 2rem; }
 h3 { font-size: 1.75rem; }
+
+/* Header */
+
+.main-header{
+    font-family: var(--main-font);
+    background-color: white;
+    align-items: center;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+    align-items: center;
+}
+nav ul{
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+}
+.buttons{
+    background-color: transparent;
+    border: none;
+}
+.dropdown-main{
+    position: relative;
+}
+#icono-paleta{
+    position: absolute;
+}
+#dropdown{
+    padding-left: 1rem;
+    border: none;
+}
+.hero{
+    display: flex;
+    height: 70vh;
+    width: 100vw;
+    background-color: var(--color-1);
+    justify-content: space-between;
+}
+.color{
+    display: flex;
+    flex-direction: column;
+    align-items:end;
+    border: black;
+}
