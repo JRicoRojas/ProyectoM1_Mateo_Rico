@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 100%;
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+/* Variables y utilidades*/
+:root {
+    --color-primario: black;
+    --color-1: #c8a2c8;
+    --color-2: #ffd1dc;
+    --color-3: #87ceeb;
+    --color-4: #c2b280;
+    --color-5: #b87333;
+    --color-6: #ffb347;
+    --color-7: #3498db;
+    --color-8: #3498db;
+    --color-9: #3498db;
+}
+/* Tipografía */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  line-height: 1.2;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
