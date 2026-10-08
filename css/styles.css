@@ -18,9 +18,10 @@ html {
     --color-7: #3498db;
     --color-8: #3498db;
     --color-9: #3498db;
+    --color-10: #34dbb7;
 
-    --main-font: 'DM Serif Display',serif;
-    --second-font: 'Roboto', sans-serif;
+    --main-font: 'Roboto',serif;
+    --second-font: sans-serif;
     --third-font: 'League Spartan', sans-serif;
 }
 /* Tipografía */
@@ -29,9 +30,8 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
 }
 
-h1 { font-size: 2.5rem; }
-h2 { font-size: 2rem; }
-h3 { font-size: 1.75rem; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; }
 
 /* Header */
 
@@ -42,6 +42,10 @@ h3 { font-size: 1.75rem; }
     position: fixed;
     width: 100vw;
     height: 3.5rem;
+}
+
+button{
+    background-color: transparent;
 }
 
 nav {
@@ -57,7 +61,6 @@ nav ul{
     list-style: none;
     align-items: center;
 }
-
 
 .buttons{
     background-color: transparent;
@@ -87,70 +90,88 @@ nav ul{
     padding-left: 1rem;
     border: none;
 }
-
+/* main */
 .hero{
-    display: grid;
-    flex-wrap: wrap;
-    min-height: 100vh;
-    width: 100vw;
+    flex: 1;
+    display: flex;
+    height: 100vh;
+    width: 100%;
     padding-top: 3.5rem;
-    justify-content: space-between;
-    grid-template-columns: repeat(3, 1fr);
 }
 
-.color{
-    display: grid;
-    grid-template-rows: repeat(3, 1fr);
-    grid-template-columns: 1fr auto;
-    grid-template-areas: 
-        "titulo titulo"
-        "hex hex"
-        "lista lista";
-    transition-duration: 0.3s;
+.color {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 4rem;
+    transition: flex 0.3s ease;
+    min-width: 0;
+}
+.color:nth-child(1) {
     background-color: var(--color-1);
+}
+.color:nth-child(2) {
+    background-color: var(--color-2);
+}
+.color:nth-child(3) {
+    background-color: var(--color-3);
+}
+.color:nth-child(4) {
+    background-color: var(--color-4);
+}
+.color:nth-child(5) {
+    background-color: var(--color-5);
+}
+.color:nth-child(6) {
+    background-color: var(--color-6);
+}
+.color:nth-child(7) {
+    background-color: var(--color-7);
+}
+.color:nth-child(8) {
+    background-color: var(--color-8);
+}
+.color:nth-child(9) {
+    background-color: var(--color-9);
+}
+.color:nth-child(10) {
+    background-color: var(--color-10);
 }
 
 .color ul{
     display: flex;
     flex-direction: column;
     list-style: none;
-    grid-area: lista;
-    align-self: end;
-    text-align: right;
-    gap: 0.5rem;
-    padding:1.5rem;
+    align-items: center;
+    gap: 1rem;
 }
 
 .color h2{
-    grid-area: titulo;
     font-family: var(--second-font);
-    transition-duration: 0.3s;
-    padding: 1rem;
 }
 
 .color .hex {
-  grid-area: hex;
   margin: 0;
-  align-self:flex-end;
   font-family: var(--third-font);
-  padding: 1rem;
 }
 
 .color button{
     border-style: none;
     background-color: var(--color-1);
     font-size: clamp(0.875rem, 1vw + 0.5rem, 1.25rem);
+    background-color: transparent;
 }
 
 .color:hover{
-    filter: brightness(1.1);
-    box-shadow: 0 0 20px rgba(255, 112, 217, 0.6);
+    flex: 1.1;
 }
 
 .color button:hover{
-    text-shadow: 0 0 20px white;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 button:hover{
-    text-shadow: 0 0 20px black;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
