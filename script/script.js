@@ -140,10 +140,9 @@ hero.addEventListener('click', function (event) {
 hero.addEventListener('click', function (event) {
     const heartBtn = event.target.closest('.heart');
     if (!heartBtn) return;
-    const hex = cardH.querySelector('.hex').textContent;
     favoritesList.style.visibility ="visible";
-    favoritesList.textContent = hex;
     const cardH = heartBtn.closest('.color');
+    const hex = cardH.querySelector('.hex').textContent;
     if (favorites.length < 6){
         if (favorites.includes(hex)){
             console.log("Ya esta");
