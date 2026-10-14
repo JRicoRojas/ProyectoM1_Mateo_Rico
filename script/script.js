@@ -4,7 +4,8 @@ const palette = [];
 const dropDown = document.getElementById("dropdown");
 const hero = document.querySelector('.hero');
 const befColor = document.querySelector('.color');
-const headerHrt = document.getElementById("favorites")
+const headerHrt = document.getElementById("favoritesBtn");
+const toastText = document.getElementById("toast");
 let colors = document.querySelectorAll('.color');
 let firstArray = [255, 255, 255];
 let favorites = [];
@@ -63,13 +64,13 @@ dropDown.addEventListener('change', function () {
     }
 });
 
-function mostrarToast() {
-  const toast = document.getElementById("toast");
-  toast.classList.add("show");
-  setTimeout(() => {
+function setToastMessage(message){
+    toastText.textContent = message;
+    toast.classList.add("show");
+    setTimeout(() => {
     toast.classList.remove("show");
-  }, 750);
-}
+    }, 1000);
+};
 
 function randomArray(array) {
     array.forEach((_, i) => {
@@ -125,7 +126,7 @@ function lumus(r, g, b) {
 
 headerBtn.addEventListener('click', function () {
     randomPalette();
-    mostrarToast();
+    setToastMessage("New Palette");
 });
 
 hero.addEventListener('click', function (event) {
@@ -138,31 +139,43 @@ hero.addEventListener('click', function (event) {
 });
 
 hero.addEventListener('click', function (event) {
+    const copyBtn = event.target.closest('.copy');
+    if (!copyBtn) return;
+    setToastMessage("Hex code copied to clipboard");
+    const cardL = copyBtn.closest('.color');
+    const copyHex = cardL.querySelector('.hex').textContent;
+    console.log(copyHex);
+    navigator.clipboard.writeText(copyHex);
+});
+
+hero.addEventListener('click', function (event) {
     const heartBtn = event.target.closest('.heart');
     if (!heartBtn) return;
     favoritesList.style.visibility ="visible";
     const cardH = heartBtn.closest('.color');
     const hex = cardH.querySelector('.hex').textContent;
+    
     if (favorites.length < 6){
         if (favorites.includes(hex)){
-            console.log("Ya esta");
+            setToastMessage("Already in favorites");
         }else{
             favorites.push(hex);
-            console.log(favorites);
+            setToastMessage("Added to favorites");
         }
     }else{
-        favorites.shift();
-        favorites.push(hex);
+        if (favorites.includes(hex)){
+            setToastMessage("Already in favorites");
+        }else{
+            favorites.shift();
+            favorites.push(hex);
+            setToastMessage("Added to favorites");
+        }
     }
-    console.log(favorites.length);
+    favoritesList.textContent = `Favorites: ${favorites.join(", ")}`;
 });
 
 headerHrt.addEventListener('click',function(){
-    navigator.clipboard.writeText(favorites).then(() => {
-        console.log('Favoritos copiados al portapapeles:', favorites);
-    }).catch(err => {
-        console.error('Error al copiar al portapapeles:', err);
-    });
+    navigator.clipboard.writeText(favorites);
+    setToastMessage("All favorites copied");
 });
-
 
