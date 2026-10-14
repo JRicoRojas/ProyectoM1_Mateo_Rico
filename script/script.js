@@ -158,7 +158,11 @@ hero.addEventListener('click', function (event) {
 });
 
 headerHrt.addEventListener('click',function(){
-    navigator.clipboard.writeText(favorites);
+    navigator.clipboard.writeText(favorites).then(() => {
+        console.log('Favoritos copiados al portapapeles:', favorites);
+    }).catch(err => {
+        console.error('Error al copiar al portapapeles:', err);
+    });
 });
 
 
