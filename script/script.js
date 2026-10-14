@@ -1,8 +1,10 @@
-const headerBtn = document.getElementById("test");
+const headerBtn = document.getElementById("start");
+const favoritesList = document.getElementById("favorites-list");
 const palette = [];
 const dropDown = document.getElementById("dropdown");
 const hero = document.querySelector('.hero');
 const befColor = document.querySelector('.color');
+const headerHrt = document.getElementById("favorites")
 let colors = document.querySelectorAll('.color');
 let firstArray = [255, 255, 255];
 let favorites = [];
@@ -129,8 +131,35 @@ headerBtn.addEventListener('click', function () {
 hero.addEventListener('click', function (event) {
     const lockBtn = event.target.closest('.lock');
     if (!lockBtn) return;
-
-    const card = lockBtn.closest('.color');
-    card.classList.toggle('locked');
-    lockBtn.setAttribute('aria-pressed', card.classList.contains('locked'));
+    const cardL = lockBtn.closest('.color');
+    cardL.classList.toggle('locked');
+    lockBtn.setAttribute('aria-pressed', cardL.classList.contains('locked'));
+    
 });
+
+hero.addEventListener('click', function (event) {
+    const heartBtn = event.target.closest('.heart');
+    if (!heartBtn) return;
+    const hex = cardH.querySelector('.hex').textContent;
+    favoritesList.style.visibility ="visible";
+    favoritesList.textContent = hex;
+    const cardH = heartBtn.closest('.color');
+    if (favorites.length < 6){
+        if (favorites.includes(hex)){
+            console.log("Ya esta");
+        }else{
+            favorites.push(hex);
+            console.log(favorites);
+        }
+    }else{
+        favorites.shift();
+        favorites.push(hex);
+    }
+    console.log(favorites.length);
+});
+
+headerHrt.addEventListener('click',function(){
+    navigator.clipboard.writeText(favorites);
+});
+
+
