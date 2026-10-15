@@ -171,7 +171,7 @@ hero.addEventListener('click', function (event) {
             setToastMessage("Added to favorites");
         }
     }
-    favoritesList.textContent = `Favorites: ${favorites.join(", ")}`;
+    favoritesList.textContent = `Favorites (Up to 6): ${favorites.join(", ")}`;
 });
 
 headerHrt.addEventListener('click',function(){
