@@ -18,16 +18,16 @@
                 <li><button class="buttons" title ="New Palette" id="start"><i class="fa-solid fa-shuffle"></i></button></li>
                 <li><div class="dropdown-main" title ="Choose Colors">
                     <span id="icono-paleta"><i class="fa-solid fa-palette"></i></span>
-                    <select id="dropdown">
-                        <option value=""selected hidden>Colors</option>
-                        <option value="6">6</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                    </select>
+                        <label for="dropdown">
+                            Number of colors
+                            <select id="dropdown">
+                                <option value="" selected hidden></option>
+                                <option value="6">6</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                            </select>
+                        </label>
                 </div></li>
-                <li><button class="buttons" title ="Color Blind"><i class="fa-solid fa-glasses"></i></button></li>
-                <li><button class="buttons" title ="Previous"><i class="fa-solid fa-circle-chevron-left"></i></button></li>
-                <li><button class="buttons" title ="Next"><i class="fa-solid fa-circle-chevron-right"></i></button></li>
                 <li><button class="buttons" title ="Copy all favorites hex codes" id = "favoritesBtn"><i class="fa-solid fa-heart"></i></button></li>
             </ul>
         </nav>
@@ -93,6 +93,6 @@
     <footer>
         Todos los derechos reservados bla bla bla aqui va el footer
     </footer>
-<div id="toast" class="toast"></div>
+<div id="toast" class="toast" role="status"></div>
 </body>
 </html>
