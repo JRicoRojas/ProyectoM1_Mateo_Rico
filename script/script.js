@@ -6,13 +6,26 @@ const hero = document.querySelector('.hero');
 const befColor = document.querySelector('.color');
 const headerHrt = document.getElementById("favoritesBtn");
 const toastText = document.getElementById("toast");
+const clearBtn = document.getElementById("clearBtn");
 let colors = document.querySelectorAll('.color');
 let firstArray = [255, 255, 255];
-let favorites = [];
+let favorites = JSON.parse(localStorage.getItem("randomhue:favorites")) || [];
+let toastTimer;
 
 function refreshLists() {
     colors = document.querySelectorAll('.color');
 }
+
+function showFavorites(){
+    if (favorites.length === 0) {
+        favoritesList.textContent = "";
+        favoritesList.style.visibility = "hidden";
+        return;
+    }
+    favoritesList.textContent = "Favorites (Up to 6): " + favorites.join(", ");
+    favoritesList.style.visibility = "visible";
+}
+showFavorites ();
 
 function paintCard(card, i) {
     randomArray(firstArray);
@@ -64,13 +77,14 @@ dropDown.addEventListener('change', function () {
     }
 });
 
-function setToastMessage(message){
+function setToastMessage(message) {
     toastText.textContent = message;
-    toast.classList.add("show");
-    setTimeout(() => {
-    toast.classList.remove("show");
-    }, 1000);
-};
+    toastText.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => {
+        toastText.classList.remove("show");
+    }, 1500);
+}
 
 function randomArray(array) {
     array.forEach((_, i) => {
@@ -144,38 +158,47 @@ hero.addEventListener('click', function (event) {
     setToastMessage("Hex code copied to clipboard");
     const cardL = copyBtn.closest('.color');
     const copyHex = cardL.querySelector('.hex').textContent;
-    console.log(copyHex);
-    navigator.clipboard.writeText(copyHex);
+navigator.clipboard.writeText(copyHex).then(() => {
+    setToastMessage("Hex code copied to clipboard");
+});
 });
 
 hero.addEventListener('click', function (event) {
     const heartBtn = event.target.closest('.heart');
     if (!heartBtn) return;
-    favoritesList.style.visibility ="visible";
     const cardH = heartBtn.closest('.color');
     const hex = cardH.querySelector('.hex').textContent;
-    
-    if (favorites.length < 6){
-        if (favorites.includes(hex)){
-            setToastMessage("Already in favorites");
-        }else{
-            favorites.push(hex);
-            setToastMessage("Added to favorites");
-        }
-    }else{
-        if (favorites.includes(hex)){
-            setToastMessage("Already in favorites");
-        }else{
-            favorites.shift();
-            favorites.push(hex);
-            setToastMessage("Added to favorites");
-        }
+
+    if (favorites.includes(hex)) {
+        setToastMessage("Already in favorites");
+        return;
     }
-    favoritesList.textContent = `Favorites (Up to 6): ${favorites.join(", ")}`;
+
+    if (favorites.length >= 6) {
+        favorites.shift();
+    }
+    favorites.push(hex);
+    localStorage.setItem("randomhue:favorites", JSON.stringify(favorites));
+    showFavorites();
+    setToastMessage("Added to favorites");
 });
 
 headerHrt.addEventListener('click',function(){
-    navigator.clipboard.writeText(favorites);
+    if (favorites.length === 0) {
+        setToastMessage("No favorites yet");
+        return;
+    }
+    navigator.clipboard.writeText(favorites.join("\n"));
     setToastMessage("All favorites copied");
 });
 
+clearBtn.addEventListener('click', function () {
+    if (favorites.length === 0) {
+        setToastMessage("No favorites to clear");
+        return;
+    }
+    favorites = [];
+    localStorage.setItem("randomhue:favorites", JSON.stringify(favorites));
+    showFavorites();
+    setToastMessage("Favorites cleared");
+});

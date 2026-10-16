@@ -27,7 +27,8 @@ Drive https://drive.google.com/drive/folders/1DggSBOiF0CAkfynvB1SISTsH5Z8Ou9hB?u
 ```
 ProyectoM1_Mateo_Rico/
 ├── index.html
-├── styles.css
+├── css/
+│   └── styles.css
 ├── script/
 │   └── script.js
 └── README.md

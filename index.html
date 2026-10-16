@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>RandomHue | Color Palette Generator</title>
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;700&family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -21,14 +21,14 @@
                         <label for="dropdown">
                             Number of colors
                             <select id="dropdown">
-                                <option value="" selected hidden></option>
-                                <option value="6">6</option>
+                                <option value="6" selected>6</option>
                                 <option value="8">8</option>
                                 <option value="9">9</option>
                             </select>
                         </label>
                 </div></li>
                 <li><button class="buttons" title ="Copy all favorites hex codes" id = "favoritesBtn"><i class="fa-solid fa-heart"></i></button></li>
+                <li><button class="buttons" title ="Clear all favorites" id = "clearBtn"><i class="fa-solid fa-trash-can"></i></button></li>
             </ul>
         </nav>
     </header>
@@ -37,61 +37,61 @@
             <div class="color">
                 <h2>hsl(300, 26%, 71%)</h2>
                 <ul>
-                    <li><button class="lock" title ="Lock Color"><i class="fa-solid fa-lock"></i></button></li>
+                    <button class="lock" title="Lock Color" aria-label="Lock color" aria-pressed="false"><i class="fa-solid fa-lock" aria-hidden="true"></i></button>
                     <li><button class ="heart" title ="Add to favorites"><i class="fa-solid fa-heart"></i></button></li>
                     <li><button class ="copy" title ="Copy Color"><i class="fa-solid fa-copy"></i></button></li>
                 </ul>
-                <p class="hex">#c8a2c8</p>
+                <p class="hex">#C8A2C8</p>
             </div>
             <div class="color">
                 <h2>hsl(346, 100%, 91%)</h2>
                 <ul>
-                    <li><button class="lock" title ="Lock Color"><i class="fa-solid fa-lock"></i></button></li>
+                    <button class="lock" title="Lock Color" aria-label="Lock color" aria-pressed="false"><i class="fa-solid fa-lock" aria-hidden="true"></i></button>
                     <li><button class ="heart" title ="Add to favorites"><i class="fa-solid fa-heart"></i></button></li>
                     <li><button class ="copy" title ="Copy Color"><i class="fa-solid fa-copy"></i></button></li>
                 </ul>
-                <p class="hex">#ffd1dc</p>
+                <p class="hex">#FFD1DC</p>
             </div>
             <div class="color">
                 <h2>hsl(197, 71%, 73%)</h2>
                 <ul>
-                    <li><button class="lock" title ="Lock Color"><i class="fa-solid fa-lock"></i></button></li>
+                    <button class="lock" title="Lock Color" aria-label="Lock color" aria-pressed="false"><i class="fa-solid fa-lock" aria-hidden="true"></i></button>
                     <li><button class ="heart" title ="Add to favorites"><i class="fa-solid fa-heart"></i></button></li>
                     <li><button class ="copy" title ="Copy Color"><i class="fa-solid fa-copy"></i></button></li>
                 </ul>
-                <p class="hex">#87ceeb</p>
+                <p class="hex">#87CEEB</p>
             </div>
             <div class="color">
                 <h2>hsl(45, 35%, 63%)</h2>
                 <ul>
-                    <li><button class="lock" title ="Lock Color"><i class="fa-solid fa-lock"></i></button></li>
+                    <button class="lock" title="Lock Color" aria-label="Lock color" aria-pressed="false"><i class="fa-solid fa-lock" aria-hidden="true"></i></button>
                     <li><button class ="heart" title ="Add to favorites"><i class="fa-solid fa-heart"></i></button></li>
                     <li><button class ="copy" title ="Copy Color"><i class="fa-solid fa-copy"></i></button></li>
                 </ul>
-                <p class="hex">#c2b280</p>
+                <p class="hex">#C2B280</p>
             </div>
             <div class="color">
                 <h2>hsl(29, 57%, 46%) </h2>
                 <ul>
-                    <li><button class="lock" title ="Lock Color"><i class="fa-solid fa-lock"></i></button></li>
+                    <button class="lock" title="Lock Color" aria-label="Lock color" aria-pressed="false"><i class="fa-solid fa-lock" aria-hidden="true"></i></button>
                     <li><button class ="heart" title ="Add to favorites"><i class="fa-solid fa-heart"></i></button></li>
                     <li><button class ="copy" title ="Copy Color"><i class="fa-solid fa-copy"></i></button></li>
                 </ul>
-                <p class="hex">#b87333</p>
+                <p class="hex">#B87333</p>
             </div>
             <div class="color">
                 <h2>hsl(35, 100%, 64%)</h2>
                 <ul>
-                    <li><button class="lock" title ="Lock Color"><i class="fa-solid fa-lock"></i></button></li>
+                    <button class="lock" title="Lock Color" aria-label="Lock color" aria-pressed="false"><i class="fa-solid fa-lock" aria-hidden="true"></i></button>
                     <li><button class ="heart" title ="Add to favorites"><i class="fa-solid fa-heart"></i></button></li>
                     <li><button class ="copy" title ="Copy Color"><i class="fa-solid fa-copy"></i></button></li>
                 </ul>
-                <p class="hex">#ffb347</p>
+                <p class="hex">#FFB347</p>
             </div>
         </section>
     </main>
     <footer>
-        Todos los derechos reservados bla bla bla aqui va el footer
+        <p>RandomHue, a color palette generator. Built by Mateo Rico for Henry Bootcamp, Module 1.</p>
     </footer>
 <div id="toast" class="toast" role="status"></div>
 </body>
